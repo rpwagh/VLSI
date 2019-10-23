@@ -1,0 +1,26 @@
+* File name: C:\Program Files\MICROWIND3.1\Client\DSCH3.1\examples\counters\Counta16.sch
+* Software version: DSCH 3.1
+* Created 6/5/2008 12:12:45 PM
+*
+* Voltage and current sources
+*
+VCLK1 2 0 DC 0 PULSE(0 1.0 20.00N 0.1N 0.1N 20.00N 41.00N )
+VBTN1 3 0 DC 0 PULSE(0 1.0 1.00N 0.1N 0.1N 1.00N 3.00N )
+*
+* Passive devices
+*
+*
+* Active devices
+*
+*
+* Warning: "spice.lib" not found, model not declared
+.TRAN 0.1ns 250ns
+* Dump time and volts in "Counta16.txt"
+.control
+run
+set nobreak
+print  V(2) V(3)   > Counta16.txt
+plot  V(2) V(3)  
+.endc
+.OPTIONS DELMIN=0 RELTOL=1E-6
+.END
